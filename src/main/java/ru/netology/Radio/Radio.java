@@ -3,6 +3,19 @@ package ru.netology.Radio;
 public class Radio {
     private int currentStation;
     private int currentVolume;
+    private int maxStation;
+
+
+    public Radio() {
+        maxStation = 9;
+
+    }
+
+    public Radio(int stationCount) {
+        maxStation=stationCount-1;
+
+    }
+
 
 
     public int getCurrentStation() {
@@ -13,7 +26,7 @@ public class Radio {
         if (currentStation < 0) {
             return;
         }
-        if (currentStation > 9) {
+        if (currentStation > maxStation) {
             return;
         }
         this.currentStation = currentStation;
@@ -27,43 +40,43 @@ public class Radio {
         if (currentVolume < 0) {
             return;
         }
-        if (currentVolume > 10) {
-            return;
+        if (currentVolume > 100) {
+            currentVolume=100;
         }
         this.currentVolume = currentVolume;
     }
 
     public void increaseVolume() {
-        if (currentVolume < 10) {
+        if (currentVolume < 100) {
             currentVolume++;
         } else {
-            currentVolume = 10;
+            currentVolume = 100;
         }
     }
 
     public void reduceVolume() {
         if (currentVolume > 0) {
             currentVolume--;
-        }else{
+        } else {
             currentVolume = 0;
         }
     }
 
 
-        public void nextStation () {
-            if (currentStation < 9) {
-                currentStation++;
-            } else {
-                currentStation = 0;
-            }
-        }
-
-        public void prevStation () {
-            if (currentStation > 0) {
-                currentStation--;
-            } else {
-                currentStation = 9;
-            }
+    public void nextStation() {
+        if (currentStation < maxStation) {
+            currentStation++;
+        } else {
+            currentStation = 0;
         }
     }
+
+    public void prevStation() {
+        if (currentStation > 0) {
+            currentStation--;
+        } else {
+            currentStation = maxStation;
+        }
+    }
+}
 

@@ -97,9 +97,9 @@ public class RadioTest {
     public void testCurrentVolumeOverLimit() {
         Radio radio = new Radio();
 
-        radio.setCurrentVolume(11);
+        radio.setCurrentVolume(101);
 
-        int expected = 0;
+        int expected = 100;
         int actual = radio.getCurrentVolume();
 
         assertEquals(expected, actual);
@@ -222,10 +222,10 @@ public class RadioTest {
     public void increaseVolume() {
         Radio radio = new Radio();
 
-        radio.setCurrentVolume(10);
+        radio.setCurrentVolume(56);
         radio.increaseVolume();
 
-        int expected = 10;
+        int expected = 57;
         int actual = radio.getCurrentVolume();
 
         assertEquals(expected, actual);
@@ -264,10 +264,10 @@ public class RadioTest {
     public void increaseVolumeOverLimit() {
         Radio radio = new Radio();
 
-        radio.setCurrentVolume(11);
+        radio.setCurrentVolume(101);
         radio.increaseVolume();
 
-        int expected = 1;
+        int expected = 100;
         int actual = radio.getCurrentVolume();
 
         assertEquals(expected, actual);
@@ -323,14 +323,23 @@ public class RadioTest {
     public void reduceVolumeOverLimit() {
         Radio radio = new Radio();
 
-        radio.setCurrentVolume(11);
+        radio.setCurrentVolume(101);
         radio.reduceVolume();
 
-        int expected = 0;
+        int expected = 99;
         int actual = radio.getCurrentVolume();
 
         assertEquals(expected, actual);
 
 
+    }
+
+    @Test
+    public void maxStation(){
+        Radio radio = new Radio(10);
+
+        radio.setCurrentStation(10);
+
+        assertEquals(0, radio.getCurrentStation());
     }
 }
