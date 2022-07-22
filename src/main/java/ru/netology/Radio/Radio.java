@@ -12,10 +12,9 @@ public class Radio {
     }
 
     public Radio(int stationCount) {
-        maxStation=stationCount-1;
+        maxStation = stationCount - 1;
 
     }
-
 
 
     public int getCurrentStation() {
@@ -41,7 +40,7 @@ public class Radio {
             return;
         }
         if (currentVolume > 100) {
-            currentVolume=100;
+            currentVolume = 100;
         }
         this.currentVolume = currentVolume;
     }

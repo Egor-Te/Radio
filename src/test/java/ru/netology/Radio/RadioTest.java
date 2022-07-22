@@ -335,7 +335,7 @@ public class RadioTest {
     }
 
     @Test
-    public void maxStation(){
+    public void maxStation() {
         Radio radio = new Radio(10);
 
         radio.setCurrentStation(10);
